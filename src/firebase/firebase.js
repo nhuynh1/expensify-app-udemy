@@ -10,6 +10,7 @@ const firebaseConfig = {
     appId: process.env.FIREBASE_APP_ID
 };
 
+console.log(process.env.FIREBASE_DATABASE_URL);
 firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
