@@ -7,7 +7,9 @@ import {
     removeExpense, 
     editExpense,
     setExpenses,
-    startSetExpenses } from '../../actions/expenses';
+    startSetExpenses,
+    startRemoveExpense 
+} from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import database from '../../firebase/firebase';
 
@@ -36,6 +38,18 @@ test('should setup remove expense action object', () => {
         type: 'REMOVE_EXPENSE',
         id: '123abc'
     });
+});
+
+test('should remove expenses from firebase', (done) => {
+    const store = createMockStore({});
+    store.dispatch(startRemoveExpense(expenses[0]))
+        .then(() => {
+            return database.ref(`expenses/${expenses[0].id}`).once('value');
+        })
+        .then((snapshot) => {
+            expect(snapshot.val()).toBeFalsy(); // expect snapshot.val() to be null
+            done();
+        });
 });
 
 test('should setup edit expense action object', () => {
@@ -132,3 +146,4 @@ test('should fetch the expenses from firebase', (done) => {
         done();
     });
 });
+
