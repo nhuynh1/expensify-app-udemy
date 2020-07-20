@@ -8,6 +8,7 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
+    "test-note": "BELOW: use cross-env to pass in NODE_ENV test",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json"
   },
   "dependencies": {

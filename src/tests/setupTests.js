@@ -6,4 +6,5 @@ Enzyme.configure({
     adapter: new Adapter()
 });
 
-DotEnv.config({ path: '.env.test' });
+// use DotEnv when testing to get test environment variables
+DotEnv.config({ path: '.env.test' }); 

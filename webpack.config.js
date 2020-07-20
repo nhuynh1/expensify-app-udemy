@@ -2,8 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+// default to development if no NODE_ENV is passed in
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+// use different environment variables depending on NODE_ENV
+// note: in production, the NODE_ENV variables will need to be set on the service (i.e. Netlify, Heroku)
 if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: '.env.test' });
 } else if (process.env.NODE_ENV === 'development') {
