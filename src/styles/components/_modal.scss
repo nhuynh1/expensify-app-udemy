@@ -1,0 +1,24 @@
+.modal {
+    background: $dark-blue;
+    border-radius: 3px;
+    padding: $l-size $m-size;
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modal__title {
+    color: white;
+    font-weight: 300;
+    margin: 0 0 $m-size 0;
+    text-align: center;
+}
+
+/* override default react-modal overlay style */
+.ReactModal__Overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
