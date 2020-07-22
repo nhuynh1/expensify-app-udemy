@@ -68,11 +68,11 @@ export default class ExpenseForm extends React.Component {
         // note: autoFocus attribute / prop may have accessibility implications
         // use with care
         return (
-            <div>
-                { this.state.error && <p>{ this.state.error }</p> }
-                <form onSubmit={ this.onSubmit }>
+                <form className="form" onSubmit={ this.onSubmit }>
+                    { this.state.error && <p className="form__error">{ this.state.error }</p> }
                     <input 
                         type="text" 
+                        className="text-input"
                         placeholder="Description" 
                         autoFocus
                         value={ this.state.description }
@@ -80,6 +80,7 @@ export default class ExpenseForm extends React.Component {
                     />
                     <input 
                         type="text"
+                        className="text-input"
                         placeholder="Amount"
                         value={ this.state.amount }
                         onChange={ this.onAmountChange }
@@ -93,14 +94,16 @@ export default class ExpenseForm extends React.Component {
                         isOutsideRange={ () => false }
                     />
                     <textarea
+                        className="textarea"
                         placeholder="Add a note for your expense (optional)"
                         value={ this.state.note }
                         onChange={ this.onNoteChange }
                     >
                     </textarea>
-                    <button type="submit">Add Expense</button>
+                    <div>
+                        <button className="button" type="submit">Save Expense</button>
+                    </div>
                 </form>
-            </div>
         )
     }
 }

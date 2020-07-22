@@ -6,13 +6,13 @@ import numeral from 'numeral';
 
 // note that dispatch is part of the "props" variable that is being destructured below
 const ExpenseListItem = ({ id, description, amount, createdAt }) => (
-    <div>
-        <Link to={`edit/${id}`}>
-            <h3>{ description }</h3>
-        </Link>
-        <p>{ numeral(amount /100).format('$0,0.00') }</p>
-        <p>{ moment(createdAt).format('MMMM Do, YYYY') }</p>
-    </div>
+    <Link to={`edit/${id}`} className="list-item">
+        <div>
+            <h3 className="list-item__title">{description}</h3>
+            <span className="list-item__subtitle">{moment(createdAt).format('MMMM Do, YYYY')}</span>
+        </div>
+        <h3 className="list-item__data">{numeral(amount / 100).format('$0,0.00')}</h3>
+    </Link>
 );
 
 // Note nothing needs to be passed into the first part of connect() since ExpenseListItem does not need direct access to the state
