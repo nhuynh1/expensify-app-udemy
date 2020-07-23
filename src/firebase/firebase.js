@@ -17,8 +17,9 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const githubAuthProvider = new firebase.auth.GithubAuthProvider();
 
 // users always get prompted to select account
 googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
 
-export { firebase, googleAuthProvider, database as default };
+export { firebase, googleAuthProvider, githubAuthProvider, database as default };
